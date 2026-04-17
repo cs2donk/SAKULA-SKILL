@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { questions, results } from './data';
+import { questions, results, type Option } from './data';
 
 function App() {
   const [step, setStep] = useState<'start' | 'quiz' | 'result'>('start');
@@ -8,6 +8,7 @@ function App() {
   const [animateState, setAnimateState] = useState('');
   const [currentAvatar, setCurrentAvatar] = useState('/1.jpg');
   const [activeQuestions, setActiveQuestions] = useState(questions);
+  const [hiddenResultCode, setHiddenResultCode] = useState<string | null>(null);
 
   useEffect(() => {
     if (step === 'quiz') {
@@ -22,13 +23,17 @@ function App() {
     setStep('quiz');
     setCurrentQuestionIndex(0);
     setScore(0);
+    setHiddenResultCode(null);
     setActiveQuestions([...questions].sort(() => Math.random() - 0.5));
   };
 
-  const handleOptionClick = (optionScore: number) => {
+  const handleOptionClick = (option: Option) => {
     if (isAnswering) return;
     setIsAnswering(true);
-    setScore(prev => prev + optionScore);
+    setScore(prev => prev + option.score);
+    if (option.isHiddenTrigger) {
+      setHiddenResultCode(option.isHiddenTrigger);
+    }
     
     // 淡出动画效果
     setAnimateState('fade-out');
@@ -53,6 +58,9 @@ function App() {
   }, [currentQuestion]);
   
   const getResult = () => {
+    if (hiddenResultCode) {
+      return results.find(r => r.code === hiddenResultCode) || results[0];
+    }
     const res = results.find(r => score >= r.minScore && score <= r.maxScore);
     return res || results[0]; // fallback
   };
@@ -117,7 +125,7 @@ function App() {
               <button 
                 key={i} 
                 className="option-btn"
-                onClick={() => handleOptionClick(opt.score)}
+                onClick={() => handleOptionClick(opt)}
               >
                 {opt.text.replace(/^[A-D][.．、]?\s*/, '')}
               </button>
