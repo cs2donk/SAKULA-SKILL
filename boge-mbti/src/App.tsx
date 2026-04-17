@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { questions, results } from './data';
 
 function App() {
@@ -44,6 +44,11 @@ function App() {
   };
 
   const currentQuestion = questions[currentQuestionIndex];
+
+  const shuffledOptions = useMemo(() => {
+    if (!currentQuestion) return [];
+    return [...currentQuestion.options].sort(() => Math.random() - 0.5);
+  }, [currentQuestion]);
   
   const getResult = () => {
     const res = results.find(r => score >= r.minScore && score <= r.maxScore);
@@ -106,13 +111,13 @@ function App() {
           </div>
 
           <div className="options-container">
-            {currentQuestion.options.map((opt, i) => (
+            {shuffledOptions.map((opt, i) => (
               <button 
                 key={i} 
                 className="option-btn"
                 onClick={() => handleOptionClick(opt.score)}
               >
-                {opt.text}
+                {opt.text.replace(/^[A-D][.．、]?\s*/, '')}
               </button>
             ))}
           </div>
