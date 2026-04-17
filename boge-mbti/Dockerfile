@@ -1,5 +1,5 @@
 # 第一阶段：构建前端产物
-FROM node:18-alpine as builder
+FROM node:20-alpine as builder
 
 # 设置工作目录
 WORKDIR /app
