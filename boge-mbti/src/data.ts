@@ -14,6 +14,8 @@ export type Question = {
 export type ResultType = {
   minScore: number;
   maxScore: number;
+  code: string;
+  codeMeaning: string;
   title: string;
   description: string;
   imageQuote: string;
@@ -358,6 +360,8 @@ export const results: ResultType[] = [
   {
     minScore: 200,
     maxScore: 300,
+    code: "ATMTI",
+    codeMeaning: "ATM机型",
     title: "【赛博ATM机】 - 大满贯冤大头",
     description: "纯纯的白给之王，波哥眼里的活菩萨！你豪爽大方且单细胞，毫不犹豫上当受骗。只要波哥一声“弟”，你的钱包就仿佛被加了自动转账Buff。波哥发财全靠你，你的存在就是波哥赌桌上的明灯！如果哪天波哥暴富了，军功章绝对有你这30道劫难血泪的一半！",
     imageQuote: "“弟，你真是波哥这辈子最好的兄弟！”"
@@ -365,6 +369,8 @@ export const results: ResultType[] = [
   {
     minScore: 100,
     maxScore: 199,
+    code: "HESIT",
+    codeMeaning: "Hesitate - 犹豫型",
     title: "【犹豫型提款机】 - 送钱童子",
     description: "你每次都觉得不对劲，但每次都会被波哥的终极感人话术（如干妈被骗、患上抑郁症）或恐吓给拿捏。嘴上防备着，身体却很诚实地打款，堪称波哥的稳定备用金账户，是割都割不完的精选韭菜。",
     imageQuote: "“瓜，算了，不说了，你都不会安慰我。”"
@@ -372,6 +378,8 @@ export const results: ResultType[] = [
   {
     minScore: 20,
     maxScore: 99,
+    code: "LEEKI",
+    codeMeaning: "Leek - 韭菜型",
     title: "【清醒的韭菜】 - 偶尔被割",
     description: "你知道波哥不怎么靠谱，面对日常推销能果断拒绝。但在极大强度的连环剧情（比如什么副市长开店做笔录）或深度道德绑架面前，偶尔还是会沦陷，掉一波老底！虽然不会倾家荡产，但每个月没少为波哥供养香火钱。",
     imageQuote: "“你波哥我这辈子干干净净，兄弟你不会看不起波哥吧？”"
@@ -379,6 +387,8 @@ export const results: ResultType[] = [
   {
     minScore: 0,
     maxScore: 19,
+    code: "SLIPI",
+    codeMeaning: "Slip - 滑头型",
     title: "【江湖老油条】 - 免疫体质",
     description: "你深谙波哥套路，能看穿多数借钱/混吃/投资手法。偶尔碍于面子会有小损失，比如被波哥蹭一台显示器，或者借个车不加油，但想从你这儿直接转走大量现金或者忽悠创业，那是不可能有下文的！",
     imageQuote: "“弟，在存钱的路上了，缓两天……”"
@@ -386,6 +396,8 @@ export const results: ResultType[] = [
   {
     minScore: -50,
     maxScore: -1,
+    code: "AWAKI",
+    codeMeaning: "Awake - 觉醒型",
     title: "【人间清醒】 - 铜墙铁壁",
     description: "完完全全铁板一块！波哥的一切套路都对你免疫，你是那个冷酷无情高举达摩克利斯之剑的“没钱”铁壁防守者。波哥在你这里不仅骗不到一分钱，甚至连空气都要被你吸走两口。这江湖还是你的阅历强！",
     imageQuote: "“波哥不用躲，躲你妈，我一直在！”"
@@ -393,6 +405,8 @@ export const results: ResultType[] = [
   {
     minScore: -149,
     maxScore: -51,
+    code: "PUATI",
+    codeMeaning: "PUA大师型",
     title: "【反向画大饼大师】 - 顶级拉扯",
     description: "顶级拉扯的王者。不仅不受骗，还能通过虚空副市长关系、精神病院免费住宿等各种高级话术反弹回去，每次差点把波哥绕进去自我怀疑人生。波哥见你捞不到好处就算了甚至经常被你逆向画特大号煎饼，对你敬而远之不敢造次！",
     imageQuote: "“要不要线下碰一碰？……算了哥，爱你。”"
@@ -400,6 +414,8 @@ export const results: ResultType[] = [
   {
     minScore: -249,
     maxScore: -150,
+    code: "MOJIN",
+    codeMeaning: "摸金校尉拼音",
     title: "【摸金校尉的祖师爷】 - 反薅羊毛",
     description: "你简直是摸金校尉的祖宗级传人！不仅死死防波哥这招贼喊抓贼，你还能顺手牵羊反向薅他家底的羊毛。从波哥那里不但拿了车没给钱，还能顺走他的世界冠军奖牌去卖废品，在你的降维打击下，波哥只能甘拜下风跪求你的不要脸！",
     imageQuote: "“对不起所有人……我发誓我踏马真的是个赛博乞丐了服你了！”"
@@ -407,6 +423,8 @@ export const results: ResultType[] = [
   {
     minScore: -300,
     maxScore: -250,
+    code: "PRISN",
+    codeMeaning: "Prison - 监狱型",
     title: "【把波哥送进监狱的狠人】 - 无情铁手",
     description: "法外狂徒纯狱系黑客的终极克星。你不仅连环反赚他家底裤钱，更牛逼的是还一直在暗网上默默保留监控、做案事实和录音，随时能把整个波氏诈骗链条连根拔起送入纯狱套房包吃包住的万劫不复。波哥听你的名字都要抖掉两层脂肪层，直接社会性物理超度！",
     imageQuote: "“弟你就是祖宗……等波哥我做完笔录出来再谢主隆恩……”"

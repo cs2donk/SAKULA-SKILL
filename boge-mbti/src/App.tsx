@@ -57,7 +57,7 @@ function App() {
           <div className="boge-avatar-container">
             <div className="boge-avatar">😎</div>
           </div>
-          <h1 className="title">波哥MBTI<br/>赛博防骗大测试</h1>
+          <h1 className="title">波哥BOTI<br/>赛博防骗大测试</h1>
           <p className="subtitle">
             在这残酷的电竞江湖里，你能防住曾经的WEG冠军、“AK王子”吴润波的千层套路吗？<br />
             测试你的心智防御力，看看你是赛博ATM，还是反向爆金币的祖先！<br/>
@@ -125,6 +125,10 @@ function App() {
             <div className="boge-avatar">👑</div>
           </div>
           <h2 className="title" style={{fontSize: '1.5rem', marginBottom: '5px'}}>你的赛博江湖防骗评级：</h2>
+          <div className="mbti-code">{getResult().code}</div>
+          <div className="mbti-meaning" style={{ textAlign: 'center', fontSize: '1rem', color: '#94a3b8', marginBottom: '15px', letterSpacing: '1px' }}>
+            ({getResult().codeMeaning})
+          </div>
           <div className="result-title">{getResult().title}</div>
           
           <div className="result-desc">
