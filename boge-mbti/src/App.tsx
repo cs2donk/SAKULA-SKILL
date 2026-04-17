@@ -7,6 +7,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [animateState, setAnimateState] = useState('');
   const [currentAvatar, setCurrentAvatar] = useState('/1.jpg');
+  const [activeQuestions, setActiveQuestions] = useState(questions);
 
   useEffect(() => {
     if (step === 'quiz') {
@@ -21,6 +22,7 @@ function App() {
     setStep('quiz');
     setCurrentQuestionIndex(0);
     setScore(0);
+    setActiveQuestions([...questions].sort(() => Math.random() - 0.5));
   };
 
   const handleOptionClick = (optionScore: number) => {
@@ -32,7 +34,7 @@ function App() {
     setAnimateState('fade-out');
 
     setTimeout(() => {
-      if (currentQuestionIndex < questions.length - 1) {
+      if (currentQuestionIndex < activeQuestions.length - 1) {
         setCurrentQuestionIndex(prev => prev + 1);
         setAnimateState('fade-enter');
         setIsAnswering(false);
@@ -43,7 +45,7 @@ function App() {
     }, 400);
   };
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = activeQuestions[currentQuestionIndex];
 
   const shuffledOptions = useMemo(() => {
     if (!currentQuestion) return [];
