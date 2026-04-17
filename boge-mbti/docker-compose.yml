@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  boge-mbti:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: boge-mbti-web
+    ports:
+      # 将宿主机的 8080 端口映射到容器内的 nginx 80 端口
+      # 如果 8080 端口被占用了，你可以修改前面的数字，比如改成: "8081:80"
+      - "8989:80"
+    restart: unless-stopped
