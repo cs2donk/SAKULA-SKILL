@@ -260,3 +260,20 @@ body {
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
 }
+
+.github-footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.github-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.github-footer a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}

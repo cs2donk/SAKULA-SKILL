@@ -146,6 +146,16 @@ function App() {
           </button>
         </div>
       )}
+
+      <div className="github-footer">
+        <a href="https://github.com/cs2donk/SAKULA-SKILL" target="_blank" rel="noopener noreferrer">
+          ⭐️ Open Source on GitHub: SAKULA-SKILL
+        </a>
+        <br />
+        <a href="https://space.bilibili.com/3546964257934084?spm_id_from=333.1007.0.0" target="_blank" rel="noopener noreferrer" style={{ marginTop: '10px', display: 'inline-block', color: '#fb7299' }}>
+          📺 B站作者：donk666本人
+        </a>
+      </div>
     </div>
   );
 }
